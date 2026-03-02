@@ -18,7 +18,13 @@ if grep -qi '^ID=ubuntu' /etc/os-release; then
 
 
 	echo "Checking  if docker is sucessfully installed"
-	docker run hello-world
+	docker run -dit --rm --name test  hello-world 
+	echo "deleting the docker container \n"
+	docker rm -f test 
+	docker rmi hello-world:latest
+	echo '==========================='
+	echo "installation successfull !!!!!!!!!! :D"
 else 
-	 echo "This is NOT an Ubuntu system."
+	 echo "This Is Not a Ubuntu system !!!! "
+	 echo "installation Failed  :(((((((((((( "
 fi 
